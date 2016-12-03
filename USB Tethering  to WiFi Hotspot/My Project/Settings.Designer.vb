@@ -66,15 +66,39 @@ Namespace My
             End Set
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(), _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.Configuration.DefaultSettingValueAttribute("")> _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property password() As String
             Get
-                Return CType(Me("password"), String)
+                Return CType(Me("password"),String)
             End Get
-            Set(value As String)
+            Set
                 Me("password") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property adapter_settings() As Integer
+            Get
+                Return CType(Me("adapter_settings"),Integer)
+            End Get
+            Set
+                Me("adapter_settings") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property main() As String
+            Get
+                Return CType(Me("main"),String)
+            End Get
+            Set
+                Me("main") = value
             End Set
         End Property
     End Class

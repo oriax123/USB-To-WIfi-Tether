@@ -30,24 +30,33 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
-        Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.recieved_data = New System.Windows.Forms.Label()
+        Me.sent_data = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.adapters = New System.Windows.Forms.ComboBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(103, 121)
+        Me.Button1.Location = New System.Drawing.Point(103, 143)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(89, 28)
         Me.Button1.TabIndex = 0
@@ -56,14 +65,14 @@ Partial Class Form1
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(103, 51)
+        Me.TextBox1.Location = New System.Drawing.Point(103, 73)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(189, 20)
         Me.TextBox1.TabIndex = 1
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(103, 86)
+        Me.TextBox2.Location = New System.Drawing.Point(103, 108)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(189, 20)
         Me.TextBox2.TabIndex = 2
@@ -71,7 +80,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(42, 54)
+        Me.Label1.Location = New System.Drawing.Point(42, 76)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(61, 13)
         Me.Label1.TabIndex = 3
@@ -80,7 +89,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(47, 89)
+        Me.Label2.Location = New System.Drawing.Point(47, 111)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(56, 13)
         Me.Label2.TabIndex = 4
@@ -90,51 +99,19 @@ Partial Class Form1
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button2.Location = New System.Drawing.Point(195, 121)
+        Me.Button2.Location = New System.Drawing.Point(195, 143)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(89, 28)
         Me.Button2.TabIndex = 5
         Me.Button2.Text = "Activate"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'LabelX2
-        '
-        Me.LabelX2.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX2.ForeColor = System.Drawing.Color.Black
-        Me.LabelX2.Location = New System.Drawing.Point(45, 7)
-        Me.LabelX2.Name = "LabelX2"
-        Me.LabelX2.Size = New System.Drawing.Size(129, 23)
-        Me.LabelX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro
-        Me.LabelX2.TabIndex = 16
-        Me.LabelX2.Text = "Ready"
-        '
-        'LabelX1
-        '
-        Me.LabelX1.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX1.ForeColor = System.Drawing.Color.Black
-        Me.LabelX1.Location = New System.Drawing.Point(3, 7)
-        Me.LabelX1.Name = "LabelX1"
-        Me.LabelX1.Size = New System.Drawing.Size(75, 23)
-        Me.LabelX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro
-        Me.LabelX1.TabIndex = 15
-        Me.LabelX1.Text = "Status:"
-        '
         'PictureBox2
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox2.BackgroundImage = CType(resources.GetObject("PictureBox2.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox2.Location = New System.Drawing.Point(3, 2)
+        Me.PictureBox2.Location = New System.Drawing.Point(289, 146)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(27, 22)
         Me.PictureBox2.TabIndex = 14
@@ -145,7 +122,7 @@ Partial Class Form1
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(298, 51)
+        Me.PictureBox1.Location = New System.Drawing.Point(298, 73)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(46, 50)
         Me.PictureBox1.TabIndex = 13
@@ -173,14 +150,36 @@ Partial Class Form1
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.LabelX2)
-        Me.Panel1.Controls.Add(Me.LabelX1)
+        Me.Panel1.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.Panel1.Controls.Add(Me.Label6)
+        Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Panel1.Location = New System.Drawing.Point(-1, 159)
+        Me.Panel1.Location = New System.Drawing.Point(-1, 181)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(193, 36)
         Me.Panel1.TabIndex = 19
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.Black
+        Me.Label6.Location = New System.Drawing.Point(3, 13)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(51, 15)
+        Me.Label6.TabIndex = 25
+        Me.Label6.Text = "Status:"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.Black
+        Me.Label7.Location = New System.Drawing.Point(53, 13)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(47, 15)
+        Me.Label7.TabIndex = 26
+        Me.Label7.Text = "Ready"
         '
         'NotifyIcon1
         '
@@ -191,11 +190,79 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(277, 185)
+        Me.Label3.Location = New System.Drawing.Point(12, 3)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(101, 13)
+        Me.Label3.Size = New System.Drawing.Size(116, 13)
         Me.Label3.TabIndex = 20
-        Me.Label3.Text = "Created by oriax123"
+        Me.Label3.Text = "Developed by oriax123"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(199, 181)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(85, 13)
+        Me.Label4.TabIndex = 21
+        Me.Label4.Text = "Bytes Recieved:"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(199, 204)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(61, 13)
+        Me.Label5.TabIndex = 22
+        Me.Label5.Text = "Bytes Sent:"
+        '
+        'recieved_data
+        '
+        Me.recieved_data.AutoSize = True
+        Me.recieved_data.Location = New System.Drawing.Point(282, 181)
+        Me.recieved_data.Name = "recieved_data"
+        Me.recieved_data.Size = New System.Drawing.Size(16, 13)
+        Me.recieved_data.TabIndex = 23
+        Me.recieved_data.Text = "..."
+        '
+        'sent_data
+        '
+        Me.sent_data.AutoSize = True
+        Me.sent_data.Location = New System.Drawing.Point(259, 204)
+        Me.sent_data.Name = "sent_data"
+        Me.sent_data.Size = New System.Drawing.Size(16, 13)
+        Me.sent_data.TabIndex = 24
+        Me.sent_data.Text = "..."
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(42, 40)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(80, 13)
+        Me.Label8.TabIndex = 25
+        Me.Label8.Text = "Select Adapter:"
+        '
+        'adapters
+        '
+        Me.adapters.FormattingEnabled = True
+        Me.adapters.Location = New System.Drawing.Point(129, 37)
+        Me.adapters.Name = "adapters"
+        Me.adapters.Size = New System.Drawing.Size(163, 21)
+        Me.adapters.TabIndex = 26
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1000
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox3.BackgroundImage = CType(resources.GetObject("PictureBox3.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox3.Location = New System.Drawing.Point(354, 194)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(29, 29)
+        Me.PictureBox3.TabIndex = 27
+        Me.PictureBox3.TabStop = False
         '
         'Form1
         '
@@ -203,7 +270,14 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(386, 207)
+        Me.ClientSize = New System.Drawing.Size(386, 228)
+        Me.Controls.Add(Me.PictureBox3)
+        Me.Controls.Add(Me.adapters)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.sent_data)
+        Me.Controls.Add(Me.recieved_data)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
@@ -226,6 +300,8 @@ Partial Class Form1
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -238,11 +314,19 @@ Partial Class Form1
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
-    Friend WithEvents LabelX1 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents LabelX2 As DevComponents.DotNetBar.LabelX
     Friend WithEvents Button4 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents NotifyIcon1 As NotifyIcon
     Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents recieved_data As System.Windows.Forms.Label
+    Friend WithEvents sent_data As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents adapters As System.Windows.Forms.ComboBox
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
 End Class
