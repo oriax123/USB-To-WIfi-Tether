@@ -7,9 +7,8 @@ Public Class Form1
     Dim mousex As Integer
     Dim mousey As Integer
 
-    Dim command As New ProcessStartInfo("CMD.EXE")
     Dim exec As String
-    Public Shared main_adapter As String
+    Dim command As New ProcessStartInfo("CMD.EXE")
 
     Private ipv4Stats As IPv4InterfaceStatistics
     Private nic As NetworkInterface
@@ -33,28 +32,35 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'Creates Wifi Profile
-        command.WindowStyle = ProcessWindowStyle.Hidden
-        command.CreateNoWindow = True
-        command.UseShellExecute = False
-        exec = "/C netsh wlan set hostednetwork mode=allow ssid=" + My.Settings.wifiname + " key=" + My.Settings.password
-        command.Arguments = exec
-        Process.Start(command)
-        Form2.Show()
+
+        If TextBox1.Text = String.Empty Then
+            MsgBox("Please enter hotspot id and password to create hotspot.",
+                   MsgBoxStyle.Information)
+        Else
+            If TextBox1.Text.Contains(" ") Then
+                MsgBox("No Spaces Can Be Used!", MsgBoxStyle.Exclamation)
+                GoTo Cancel
+            End If
+            My.Settings.wifiname = TextBox1.Text
+            My.Settings.password = TextBox2.Text
+            Form2.Show()
+        End If
+Cancel:
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        'Scans Network Adapters
-        Dim nics() As NetworkInterface = NetworkInterface.GetAllNetworkInterfaces
-        For Each adapter As NetworkInterface In nics
-            adapters.Items.Add(adapter.Name)
-        Next
-
         'Retrieves Saved Details
         TextBox1.Text = My.Settings.wifiname
         TextBox2.Text = My.Settings.password
-        adapters.SelectedIndex = My.Settings.adapter_settings
+
+        'In case it crashed and still running in background
+        command.WindowStyle = ProcessWindowStyle.Hidden
+        command.CreateNoWindow = True
+        command.UseShellExecute = False
+        exec = "/C netsh wlan stop hostednetwork"
+        command.Arguments = exec
+        Process.Start(command)
 
     End Sub
 
@@ -70,15 +76,14 @@ Public Class Form1
             Label7.Text = "Activated"
             Label7.ForeColor = Color.Green
             Button2.Text = "Deactivate"
-            adapters.Enabled = False
             Button1.Enabled = False
             PictureBox1.Enabled = False
-            ' select adapter to monitor
-            If adapters.SelectedIndex > -1 Then
-                nic = NetworkInterface.GetAllNetworkInterfaces(adapters.SelectedIndex)
-                ipv4Stats = nic.GetIPv4Statistics
-                Timer1.Start()
-            End If
+
+            'Monitoring network adapter chosen on form2 when creating setup
+            nic = NetworkInterface.GetAllNetworkInterfaces(My.Settings.adapter_settings)
+            ipv4Stats = nic.GetIPv4Statistics
+            Timer1.Start()
+
         Else
 
             command.WindowStyle = ProcessWindowStyle.Hidden
@@ -91,7 +96,6 @@ Public Class Form1
             Label7.ForeColor = Color.Red
             Button2.Text = "Activate"
             Timer1.Stop()
-            adapters.Enabled = True
             Button1.Enabled = True
             PictureBox1.Enabled = True
         End If
@@ -101,20 +105,21 @@ Public Class Form1
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
         'Saves Wifi Details
-
         If TextBox1.Text = String.Empty Then
             MsgBox("Please enter info to create hotspot.",
                    MsgBoxStyle.Information)
         Else
+            If TextBox1.Text.Contains(" ") Then
+                MsgBox("No Spaces Can Be Used!", MsgBoxStyle.Exclamation)
+                GoTo Cancel
+            End If
             My.Settings.wifiname = TextBox1.Text
             My.Settings.password = TextBox2.Text
-            My.Settings.adapter_settings = adapters.SelectedIndex
-
             MsgBox("Settings have been saved!",
                    MsgBoxStyle.Information
                    )
         End If
-
+Cancel:
     End Sub
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
@@ -159,7 +164,7 @@ Public Class Form1
     End Sub
 
     Private Sub UpdateStats()
-        ipv4Stats = System.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces(Me.adapters.SelectedIndex).GetIPv4Statistics
+        ipv4Stats = System.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces(My.Settings.adapter_settings).GetIPv4Statistics
         Try
             SetLabelText_ThreadSafe(Me.recieved_data, ipv4Stats.BytesReceived.ToString)
             SetLabelText_ThreadSafe(Me.sent_data, ipv4Stats.BytesSent.ToString)
@@ -167,24 +172,18 @@ Public Class Form1
             Console.WriteLine(ex)
         End Try
     End Sub
-    Private Sub adapters_SelectedIndexChanged(sender As Object, e As EventArgs) Handles adapters.SelectedIndexChanged
-        My.Settings.adapter_settings = adapters.SelectedIndex
-        Dim wifi As String = adapters.SelectedText
-        EnableDisableICS(My.Settings.main, wifi, True)
-    End Sub
 
-    Private Function EnableDisableICS(ByVal sPublicConnectionName As String, ByVal sPrivateConnectionName As String, ByVal bEnable As Boolean)
+    Public Shared Function EnableDisableICS(ByVal sPublicConnectionName As String, ByVal sPrivateConnectionName As String, ByVal bEnable As Boolean)
         Dim bFound As Boolean
         Dim oNetSharingManager, oConnectionCollection, oItem, EveryConnection, objNCProps
-
         oNetSharingManager = CreateObject("HNetCfg.HNetShare.1")
-
         oConnectionCollection = oNetSharingManager.EnumEveryConnection
         For Each oItem In oConnectionCollection
             EveryConnection = oNetSharingManager.INetSharingConfigurationForINetConnection(oItem)
             objNCProps = oNetSharingManager.NetConnectionProps(oItem)
             If objNCProps.name = sPrivateConnectionName Then
                 bFound = True
+                MsgBox("Starting Internet Sharing For: " & objNCProps.name)
                 If bEnable Then
                     EveryConnection.EnableSharing(1)
                 Else
@@ -192,14 +191,13 @@ Public Class Form1
                 End If
             End If
         Next
-
         oConnectionCollection = oNetSharingManager.EnumEveryConnection
         For Each oItem In oConnectionCollection
             EveryConnection = oNetSharingManager.INetSharingConfigurationForINetConnection(oItem)
             objNCProps = oNetSharingManager.NetConnectionProps(oItem)
-
             If objNCProps.name = sPublicConnectionName Then
                 bFound = True
+                MsgBox("Internet Sharing Success For: " & objNCProps.name)
                 If bEnable Then
                     EveryConnection.EnableSharing(0)
                 Else
@@ -207,39 +205,17 @@ Public Class Form1
                 End If
             End If
         Next
-
+        Return Nothing 'bEnable & bFound
     End Function
 
     Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
         'Fixes the "Obtaining IP Adresses, basically just disables and renables.
 
         If Button2.Text = "Deactivate" Then
-            command.WindowStyle = ProcessWindowStyle.Hidden
-            command.CreateNoWindow = True
-            command.UseShellExecute = False
-            exec = "/C netsh wlan start hostednetwork"
-            command.Arguments = exec
-            Process.Start(command)
-            Label7.Text = "Activated"
-            Label7.ForeColor = Color.Green
-            Button2.Text = "Deactivate"
-            adapters.Enabled = False
-            Button1.Enabled = False
-            PictureBox1.Enabled = False
-            ' select adapter to monitor
-            If adapters.SelectedIndex > -1 Then
-                nic = NetworkInterface.GetAllNetworkInterfaces(adapters.SelectedIndex)
-                ipv4Stats = nic.GetIPv4Statistics
-                Timer1.Start()
-            End If
-
-            Dim wifi As String = adapters.SelectedText
-            EnableDisableICS(My.Settings.main, wifi, False)
-            Dim i As Integer = 0
-            Do Until i = 5
-                i += 1
-            Loop
-            EnableDisableICS(My.Settings.main, wifi, True)
+            
+            EnableDisableICS(My.Settings.main, My.Settings.hotspot, False)
+            Thread.Sleep(3000)
+            EnableDisableICS(My.Settings.main, My.Settings.hotspot, True)
             command.WindowStyle = ProcessWindowStyle.Hidden
             command.CreateNoWindow = True
             command.UseShellExecute = False
@@ -250,16 +226,14 @@ Public Class Form1
             Label7.ForeColor = Color.Red
             Button2.Text = "Activate"
             Timer1.Stop()
-            adapters.Enabled = True
             Button1.Enabled = True
             PictureBox1.Enabled = True
             MsgBox("Attempted fix, try to activate now!", MsgBoxStyle.Information)
-
         Else
 
             MsgBox("Please Activate Hotspot and try again to attempt to fix the problem.", MsgBoxStyle.Exclamation)
         End If
 
-
     End Sub
+
 End Class

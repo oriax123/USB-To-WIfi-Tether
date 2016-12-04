@@ -43,8 +43,6 @@ Partial Class Form1
         Me.Label5 = New System.Windows.Forms.Label()
         Me.recieved_data = New System.Windows.Forms.Label()
         Me.sent_data = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.adapters = New System.Windows.Forms.ComboBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,23 +54,23 @@ Partial Class Form1
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(103, 143)
+        Me.Button1.Location = New System.Drawing.Point(103, 136)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(89, 28)
         Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Create"
+        Me.Button1.Text = "Setup"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(103, 73)
+        Me.TextBox1.Location = New System.Drawing.Point(103, 63)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(189, 20)
         Me.TextBox1.TabIndex = 1
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(103, 108)
+        Me.TextBox2.Location = New System.Drawing.Point(103, 98)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(189, 20)
         Me.TextBox2.TabIndex = 2
@@ -80,7 +78,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(42, 76)
+        Me.Label1.Location = New System.Drawing.Point(42, 66)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(61, 13)
         Me.Label1.TabIndex = 3
@@ -89,7 +87,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(47, 111)
+        Me.Label2.Location = New System.Drawing.Point(47, 101)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(56, 13)
         Me.Label2.TabIndex = 4
@@ -99,7 +97,7 @@ Partial Class Form1
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button2.Location = New System.Drawing.Point(195, 143)
+        Me.Button2.Location = New System.Drawing.Point(195, 136)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(89, 28)
         Me.Button2.TabIndex = 5
@@ -111,7 +109,7 @@ Partial Class Form1
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox2.BackgroundImage = CType(resources.GetObject("PictureBox2.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox2.Location = New System.Drawing.Point(289, 146)
+        Me.PictureBox2.Location = New System.Drawing.Point(289, 139)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(27, 22)
         Me.PictureBox2.TabIndex = 14
@@ -122,7 +120,7 @@ Partial Class Form1
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(298, 73)
+        Me.PictureBox1.Location = New System.Drawing.Point(298, 63)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(46, 50)
         Me.PictureBox1.TabIndex = 13
@@ -232,23 +230,6 @@ Partial Class Form1
         Me.sent_data.TabIndex = 24
         Me.sent_data.Text = "..."
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(42, 40)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(80, 13)
-        Me.Label8.TabIndex = 25
-        Me.Label8.Text = "Select Adapter:"
-        '
-        'adapters
-        '
-        Me.adapters.FormattingEnabled = True
-        Me.adapters.Location = New System.Drawing.Point(129, 37)
-        Me.adapters.Name = "adapters"
-        Me.adapters.Size = New System.Drawing.Size(163, 21)
-        Me.adapters.TabIndex = 26
-        '
         'Timer1
         '
         Me.Timer1.Interval = 1000
@@ -272,8 +253,6 @@ Partial Class Form1
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(386, 228)
         Me.Controls.Add(Me.PictureBox3)
-        Me.Controls.Add(Me.adapters)
-        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.sent_data)
         Me.Controls.Add(Me.recieved_data)
         Me.Controls.Add(Me.Label5)
@@ -325,8 +304,6 @@ Partial Class Form1
     Friend WithEvents sent_data As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents adapters As System.Windows.Forms.ComboBox
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
 End Class

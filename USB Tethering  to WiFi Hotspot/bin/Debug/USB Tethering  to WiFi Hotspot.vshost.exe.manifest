@@ -43,24 +43,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="USB Tethering  to WiFi Hotspot.exe" size="253904">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="USB Tethering  to WiFi Hotspot.exe" size="260608">
       <assemblyIdentity name="USB Tethering  to WiFi Hotspot" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>UQVKDCb06u3KN5GCT13jvNbMcXBo8gtq0agbctDWkvM=</dsig:DigestValue>
+        <dsig:DigestValue>ef58AJLn6BIg1yEM7oKBEb28vaYnken70MehuVCArcA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="USB Tethering  to WiFi Hotspot.exe.config" size="1299">
+  <file name="USB Tethering  to WiFi Hotspot.exe.config" size="1409">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>6Bfdlq5/+gCnWzO4w34Aot54ePR/N7QjpaL3ZC11hzU=</dsig:DigestValue>
+      <dsig:DigestValue>GCADfcGalSOWQ3gynxR33T43ffR6Gw2ZN0tv7cUnLSA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="wifi_a5.ico" size="67646">

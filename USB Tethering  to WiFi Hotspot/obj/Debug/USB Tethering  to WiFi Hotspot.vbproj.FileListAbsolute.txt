@@ -15,17 +15,17 @@ C:\Users\Anthony\Documents\Visual Studio 2012\Projects\USB Tethering  to WiFi Ho
 C:\Users\Anthony\Documents\Visual Studio 2012\Projects\USB Tethering  to WiFi Hotspot\USB Tethering  to WiFi Hotspot\bin\Debug\MetroFramework.dll
 C:\Users\Anthony\Documents\Visual Studio 2012\Projects\USB Tethering  to WiFi Hotspot\USB Tethering  to WiFi Hotspot\obj\Debug\USB Tethering  to WiFi Hotspot.vbprojResolveAssemblyReference.cache
 C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\bin\Debug\USB Tethering  to WiFi Hotspot.exe.config
-C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\obj\Debug\USB Tethering  to WiFi Hotspot.exe
-C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\obj\Debug\USB Tethering  to WiFi Hotspot.xml
-C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\obj\Debug\USB Tethering  to WiFi Hotspot.pdb
 C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\bin\Debug\USB Tethering  to WiFi Hotspot.exe.manifest
 C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\bin\Debug\USB Tethering  to WiFi Hotspot.application
 C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\bin\Debug\USB Tethering  to WiFi Hotspot.exe
 C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\bin\Debug\USB Tethering  to WiFi Hotspot.pdb
 C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\bin\Debug\USB Tethering  to WiFi Hotspot.xml
 C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\obj\Debug\USB_Tethering__to_WiFi_Hotspot.Form1.resources
+C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\obj\Debug\USB_Tethering__to_WiFi_Hotspot.Form2.resources
 C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\obj\Debug\USB_Tethering__to_WiFi_Hotspot.Resources.resources
 C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\obj\Debug\USB Tethering  to WiFi Hotspot.vbproj.GenerateResource.Cache
 C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\obj\Debug\USB Tethering  to WiFi Hotspot.exe.manifest
 C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\obj\Debug\USB Tethering  to WiFi Hotspot.application
-C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\obj\Debug\USB_Tethering__to_WiFi_Hotspot.Form2.resources
+C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\obj\Debug\USB Tethering  to WiFi Hotspot.exe
+C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\obj\Debug\USB Tethering  to WiFi Hotspot.xml
+C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\obj\Debug\USB Tethering  to WiFi Hotspot.pdb
