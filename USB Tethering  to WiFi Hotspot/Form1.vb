@@ -122,10 +122,6 @@ Cancel:
 Cancel:
     End Sub
 
-    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
-        Process.Start("https://youtu.be/-vRpGeMenu8")
-    End Sub
-
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Me.Close()
 
@@ -165,9 +161,42 @@ Cancel:
 
     Private Sub UpdateStats()
         ipv4Stats = System.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces(My.Settings.adapter_settings).GetIPv4Statistics
+        Dim CalculatedSizeSent As Decimal
+        Dim CalculatedSizeRecieved As Decimal
+        Dim TheSizeSent As Long = ipv4Stats.BytesSent
+        Dim TheSizeRecieved As Long = ipv4Stats.BytesReceived
+        Dim SizeTypeSent As String = "B"
+        Dim SizeTypeRecieved As String = "B"
+
+        If TheSizeSent < 1024 Then
+            CalculatedSizeSent = TheSizeSent
+
+        ElseIf TheSizeSent > 1024 AndAlso TheSizeSent < (1024 ^ 2) Then 'KB
+            CalculatedSizeSent = Math.Round((TheSizeSent / 1024), 2)
+            SizeTypeSent = "KB"
+
+        ElseIf TheSizeSent > (1024 ^ 2) AndAlso TheSizeSent < (1024 ^ 3) Then 'MB
+            CalculatedSizeSent = Math.Round((TheSizeSent / (1024 ^ 2)), 2)
+            SizeTypeSent = "MB"
+
+        End If
+
+        If TheSizeRecieved < 1024 Then
+            CalculatedSizeRecieved = TheSizeRecieved
+
+        ElseIf TheSizeRecieved > 1024 AndAlso TheSizeRecieved < (1024 ^ 2) Then 'KB
+            CalculatedSizeRecieved = Math.Round((TheSizeRecieved / 1024), 2)
+            SizeTypeRecieved = "KB"
+
+        ElseIf TheSizeRecieved > (1024 ^ 2) AndAlso TheSizeRecieved < (1024 ^ 3) Then 'MB
+            CalculatedSizeRecieved = Math.Round((TheSizeRecieved / (1024 ^ 2)), 2)
+            SizeTypeRecieved = "MB"
+
+        End If
+
         Try
-            SetLabelText_ThreadSafe(Me.recieved_data, ipv4Stats.BytesReceived.ToString)
-            SetLabelText_ThreadSafe(Me.sent_data, ipv4Stats.BytesSent.ToString)
+            SetLabelText_ThreadSafe(Me.recieved_data, CalculatedSizeSent.ToString + " " + SizeTypeSent)
+            SetLabelText_ThreadSafe(Me.sent_data, CalculatedSizeRecieved.ToString + " " + SizeTypeRecieved)
         Catch ex As Exception
             Console.WriteLine(ex)
         End Try

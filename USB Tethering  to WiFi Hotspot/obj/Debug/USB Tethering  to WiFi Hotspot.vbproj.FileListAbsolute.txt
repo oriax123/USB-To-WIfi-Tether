@@ -29,3 +29,4 @@ C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspo
 C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\obj\Debug\USB Tethering  to WiFi Hotspot.exe
 C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\obj\Debug\USB Tethering  to WiFi Hotspot.xml
 C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\obj\Debug\USB Tethering  to WiFi Hotspot.pdb
+C:\Users\Anthony\Desktop\Tether\USB-To-WIfi-Tether\USB Tethering  to WiFi Hotspot\obj\Debug\USB Tethering  to WiFi Hotspot.vbprojResolveAssemblyReference.cache

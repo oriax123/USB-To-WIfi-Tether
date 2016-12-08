@@ -30,7 +30,6 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
@@ -45,7 +44,6 @@ Partial Class Form1
         Me.sent_data = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,23 +95,12 @@ Partial Class Form1
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button2.Location = New System.Drawing.Point(195, 136)
+        Me.Button2.Location = New System.Drawing.Point(203, 136)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(89, 28)
         Me.Button2.TabIndex = 5
         Me.Button2.Text = "Activate"
         Me.Button2.UseVisualStyleBackColor = True
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.BackgroundImage = CType(resources.GetObject("PictureBox2.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox2.Location = New System.Drawing.Point(289, 139)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(27, 22)
-        Me.PictureBox2.TabIndex = 14
-        Me.PictureBox2.TabStop = False
         '
         'PictureBox1
         '
@@ -129,12 +116,13 @@ Partial Class Form1
         'Button3
         '
         Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button3.BackColor = System.Drawing.Color.LightSalmon
         Me.Button3.Location = New System.Drawing.Point(318, -2)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(56, 23)
         Me.Button3.TabIndex = 17
         Me.Button3.Text = "X"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button3.UseVisualStyleBackColor = False
         '
         'Button4
         '
@@ -199,18 +187,18 @@ Partial Class Form1
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(199, 181)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(85, 13)
+        Me.Label4.Size = New System.Drawing.Size(82, 13)
         Me.Label4.TabIndex = 21
-        Me.Label4.Text = "Bytes Recieved:"
+        Me.Label4.Text = "Data Recieved:"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(199, 204)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(61, 13)
+        Me.Label5.Size = New System.Drawing.Size(58, 13)
         Me.Label5.TabIndex = 22
-        Me.Label5.Text = "Bytes Sent:"
+        Me.Label5.Text = "Data Sent:"
         '
         'recieved_data
         '
@@ -260,7 +248,6 @@ Partial Class Form1
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label2)
@@ -276,7 +263,6 @@ Partial Class Form1
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "USB to WiFi Hotspot "
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -292,7 +278,6 @@ Partial Class Form1
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents Button4 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Panel1 As Panel
